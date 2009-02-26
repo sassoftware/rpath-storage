@@ -17,16 +17,24 @@
 # file is provided by the rpath-common package instead.
 
 SUBDIRS=storage
+SYMLINKS = xmllib
 
 dist_files = Makefile __init__.py
 
-all: default-all default-subdirs
+all: default-all default-subdirs symlinks
 
 install: all default-install install-subdirs
 
 dist: default-dist
 
-clean: default-clean
+clean: default-clean clean-symlinks
+
+clean-symlinks:
+	@rm -f $(SYMLINKS)
+
+symlinks:
+	[ -z "$$XMLLIB_PATH" ] || [ -h xmllib ] || ln -s $$XMLLIB_PATH/rpath_common/xmllib .
+
 
 include ../Make.rules
 include ../Make.defs
