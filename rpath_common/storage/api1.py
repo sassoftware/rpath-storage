@@ -172,6 +172,10 @@ class BaseStorage(object):
             return self._real_delete_collection(key)
         return self._real_delete(key)
 
+    def getFileFromKey(self, key):
+        key = self._sanitizeKey(key)
+        return self._real_get_file_from_key(key)
+
     #{ Methods that could be overwritten in subclasses
     def _generateString(self, length):
         """Generate a string
@@ -220,6 +224,8 @@ class BaseStorage(object):
     def _real_is_collection(self, key):
         raise NotImplementedError()
 
+    def _real_get_file_from_key(self, key):
+        raise NotImplementedError()
     #}
 
 class DiskStorage(BaseStorage):
@@ -298,6 +304,8 @@ class DiskStorage(BaseStorage):
         if createDirs:
             util.mkdirChain(os.path.dirname(ret))
         return ret
+
+    _real_get_file_from_key = _getFileForKey
 
 class StorageConfig(object):
     """
