@@ -38,8 +38,8 @@ To use a specific API Version of the interface::
 
 # Default to current API version
 #pylint: disable-msg=W0401
-from rpath_common.storage.api1 import *
+from rpath_storage.api1 import *
 
 # Import the automatically-generated VERSION
 #pylint: disable-msg=W0212
-from rpath_common.storage.storage_constants import _VERSION as VERSION
+from rpath_storage.storage_constants import _VERSION as VERSION

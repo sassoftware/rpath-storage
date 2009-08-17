@@ -6,7 +6,6 @@
 .*\.so$
 ^tmp/
 docs/developer/.*
-rpath_common/storage/storage_constants.pyc?$
-rpath_common/xmllib
+rpath_storage/storage_constants.pyc?$
 ^pylint/reports/
 ^rpath-common-.*.tar.bz2

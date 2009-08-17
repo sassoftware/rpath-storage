@@ -19,7 +19,7 @@ all: default-subdirs default-all
 export TOPDIR = $(shell pwd)
 export DISTDIR = $(TOPDIR)/rpath-storage-$(VERSION)
 
-SUBDIRS=rpath_common
+SUBDIRS=rpath_storage
 
 dist_files = $(extra_files)
 
