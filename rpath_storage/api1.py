@@ -74,6 +74,10 @@ class BaseStorage(object):
         """
         return self.__setitem__(key, val)
 
+    def setFields(self, kvlist):
+        for k, v in kvlist:
+            self.set(k, v)
+
     def get(self, key, default = None):
         """Get the value for the specified key.
         @param key: the key
@@ -175,6 +179,11 @@ class BaseStorage(object):
     def getFileFromKey(self, key):
         key = self._sanitizeKey(key)
         return self._real_get_file_from_key(key)
+
+    def commit(self):
+        """
+        Commit an entry
+        """
 
     #{ Methods that could be overwritten in subclasses
     def _generateString(self, length):
