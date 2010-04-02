@@ -76,7 +76,10 @@ class BaseStorage(object):
 
     def setFields(self, kvlist):
         for k, v in kvlist:
-            self.set(k, v)
+            if v is None:
+                self.delete(k)
+            else:
+                self.set(k, v)
 
     def get(self, key, default = None):
         """Get the value for the specified key.
