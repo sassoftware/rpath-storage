@@ -1,0 +1,19 @@
+#
+# Copyright (c) rPath, Inc.
+# This file is distributed under the terms of the MIT License.
+# A copy is available at http://www.rpath.com/permanent/mit-license.html
+#
+
+class rPathStorage(PackageRecipe):
+    name = 'rpath-storage'
+    version = '0.1'
+
+    buildRequires = [
+        'make:runtime',
+        'python:devel',
+        'util-linux:runtime', # Needed by arch (in Make.defs)
+    ]
+
+    def setup(r):
+        r.addMercurialSnapshot()
+        r.MakeInstall()
