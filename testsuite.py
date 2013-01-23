@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #
 # Copyright (c) SAS Institute Inc.
 #
@@ -15,16 +16,21 @@
 #
 
 
-class rPathStorage(PackageRecipe):
-    name = 'rpath-storage'
-    version = '0.1'
+import sys
 
-    buildRequires = [
-        'make:runtime',
-        'python:devel',
-        'util-linux:runtime', # Needed by arch (in Make.defs)
-    ]
+from testrunner import suite
 
-    def setup(r):
-        r.addMercurialSnapshot()
-        r.MakeInstall()
+class Suite(suite.TestSuite):
+    testsuite_module = sys.modules[__name__]
+
+    def getCoverageDirs(self, *args):
+        import rpath_storage
+        return [rpath_storage]
+
+
+_s = Suite()
+setup = _s.setup
+main = _s.main
+
+if __name__ == '__main__':
+    _s.run()

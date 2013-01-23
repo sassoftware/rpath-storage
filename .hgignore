@@ -9,3 +9,6 @@ docs/developer/.*
 rpath_storage/storage_constants.pyc?$
 ^pylint/reports/
 ^rpath-common-.*.tar.bz2
+\.coverage
+\.failed
+\.times

@@ -15,16 +15,18 @@
 #
 
 
-class rPathStorage(PackageRecipe):
-    name = 'rpath-storage'
+loadSuperClass('testpackage')
+class rPathStorageTest(TestPackageRecipe):
+    name = 'rpath-storage-test'
     version = '0.1'
 
+    Flags.coverage = True
+
     buildRequires = [
-        'make:runtime',
-        'python:devel',
-        'util-linux:runtime', # Needed by arch (in Make.defs)
+        'conary-test:python',
+        'lxml:python',
+        'rpath-storage:python',
     ]
 
-    def setup(r):
+    def setupSource(r):
         r.addMercurialSnapshot()
-        r.MakeInstall()
