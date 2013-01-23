@@ -30,3 +30,4 @@ class rPathStorageTest(TestPackageRecipe):
 
     def setupSource(r):
         r.addMercurialSnapshot()
+        r.Remove('rpath_storage', recursive=True)
