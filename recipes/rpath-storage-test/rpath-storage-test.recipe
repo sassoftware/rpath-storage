@@ -20,11 +20,9 @@ class rPathStorageTest(TestPackageRecipe):
     name = 'rpath-storage-test'
     version = '0.1'
 
-    Flags.coverage = True
-
     buildRequires = [
         'conary-test:python',
-        'lxml:python',
+        'python-lxml',
         'rpath-storage:python',
     ]
 

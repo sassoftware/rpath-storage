@@ -20,9 +20,8 @@ class rPathStorage(PackageRecipe):
     version = '0.1'
 
     buildRequires = [
-        'make:runtime',
-        'python:devel',
-        'util-linux:runtime', # Needed by arch (in Make.defs)
+        'make',
+        'python-devel',
     ]
 
     def setup(r):
