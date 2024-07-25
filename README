@@ -1,3 +1,5 @@
+Archived project: This project is no longer under actively developement and was archived on 2024-07-25.
+
 This is a component of the rpath_common set of modules.  It provides
 a stable interface for reading and writing rPath-generated XML
 files.
